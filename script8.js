@@ -77,3 +77,4 @@ export { two };
 export function sayHello() {
    console.log('Hello1');
 }
+console.log;
