@@ -12,3 +12,5 @@ document.querySelector('.b-1').addEventListener('click', () => {
       ).innerHTML += `${elem}---${local[elem]}<br>`;
    }
 });
+
+document.querySelector('.test');
