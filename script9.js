@@ -1,16 +1,17 @@
-const self = { hello: 'world', hi: 'mahai' };
-let a = 3;
+let myRequest = new XMLHttpRequest();
+let a = 0;
 
-document.querySelector('.b-1').addEventListener('click', () => {
-   localStorage.setItem('9', JSON.stringify(self));
-
-   let local = JSON.parse(localStorage.getItem('9'));
-
-   for (let elem in local) {
-      document.querySelector(
-         '.out-1'
-      ).innerHTML += `${elem}---${local[elem]}<br>`;
+myRequest.addEventListener('readystatechange', function () {
+   if (this.readyState == 4 && this.status == 200) {
+      myFunction(this.responseText);
    }
 });
 
-document.querySelector('.test');
+myRequest.open('GET', 'http://getpost.itgid.info/index2.php', true);
+myRequest.send();
+
+function myFunction(data) {
+   a = data;
+   console.log(data);
+}
+console.log(a);
