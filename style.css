@@ -21,3 +21,13 @@
 .content {
    grid-area: content;
 }
+.orange {
+   padding: 5px;
+   color: #fff;
+   background: orange;
+}
+.red {
+   padding: 5px;
+   color: #fff;
+   background: red;
+}

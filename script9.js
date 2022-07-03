@@ -1,27 +1,32 @@
-// let myRequest = new XMLHttpRequest();
-// let a = 0;
+// myAlert('HI', 'red', '.test2');
 
-// myRequest.addEventListener('readystatechange', function () {
-//    if (this.readyState == 4 && this.status == 200) {
-//       myFunction(this.responseText);
-//    }
-// });
+class Alert {
+   constructor(a, c, d) {
+      this.message = a;
+      this.cssClass = c;
+      this.out = d;
+   }
+   showAlert() {
+      document.querySelector(
+         this.out
+      ).innerHTML = `<p class='${this.cssClass}'>${this.message}</p>`;
+   }
+}
+let m = new Alert('HI', 'orange', '.test');
 
-// myRequest.open('GET', 'http://getpost.itgid.info/index2.php', true);
-// myRequest.send();
+class Alert2 extends Alert {
+   constructor(a, c, d, icon) {
+      super(a, c, d);
+      this.icon = icon;
+   }
+   showIconAlert() {
+      document.querySelector(this.out).innerHTML = `
+	 <p class='${this.cssClass}'>${this.icon}  ${this.message}</p>`;
+   }
+}
 
-// function myFunction(data) {
-//    a = data;
-//    console.log(data);
-// }
-// console.log(a);
-
-fetch('http://getpost.itgid.info/index2.php', {
-   method: 'GET',
-   headers: {
-      //  'Content-Type': 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded',
-   },
-})
-   .then((response) => response.text())
-   .then((response) => console.log(response));
+m.showAlert();
+console.log(m);
+let iconWeb = '<span class="material-symbols-outlined"> star </span>';
+let m2 = new Alert2('My message', 'red', '.test2', iconWeb);
+m2.showIconAlert();
